@@ -1,6 +1,6 @@
 # Work Day Scheduler
 
-Basic work day scheduler using 3rd party API's -- Bootstrap and jQuery.
+Basic work day scheduler using 3rd party API's -- jQuery and Bootstrap.
 
 ![screenshot](./assets/images/screenshot.png)
 
