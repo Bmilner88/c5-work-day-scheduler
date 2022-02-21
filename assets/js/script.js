@@ -39,7 +39,7 @@ function boxColor() {
         if (hour < time) {
             $(this).find('textarea').addClass('past');
         }
-        else if (hour == time) {
+        else if (hour === time) {
             $(this).find('textarea').addClass('present');
         }
         else {
