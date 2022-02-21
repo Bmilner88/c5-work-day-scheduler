@@ -2,7 +2,8 @@
 
 Basic work day scheduler using 3rd party API's -- Bootstrap and jQuery.
 
-![screenshot](./assets/images/screenshot.png)
+![screenshot1](./assets/images/screenshot1.png)
+![screenshot2](./assets/images/screenshot2.png)
 
 ## Built With
 * HTML
