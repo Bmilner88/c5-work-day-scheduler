@@ -42,15 +42,16 @@ function boxColor() {
         else if (hour == time) {
             $(this).find('textarea').addClass('present');
         }
-        else if (hour > time) {
-            $(this).find('textarea');
+        else {
+            $(this).find('textarea').addClass('future');
         };
     });
 };
 
-/* setInterval(function() {
+// Checks the box color every 15 mins
+setInterval(function() {
     boxColor();
 }, 900000);
- */
+
 boxColor();
 loadInfo();
