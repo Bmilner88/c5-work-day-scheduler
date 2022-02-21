@@ -49,9 +49,7 @@ function boxColor() {
 };
 
 // Checks the box color every 15 mins
-setInterval(function() {
-    boxColor();
-}, 900000);
+setInterval(boxColor(), 900000);
 
 boxColor();
 loadInfo();
