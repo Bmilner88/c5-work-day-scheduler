@@ -42,6 +42,9 @@ function boxColor() {
     $('.time-block').each(function() {
         let hour = parseInt($(this).attr('id'));
 
+        // Remove previous classes
+        $(this).find('textarea').removeClass('past present future');
+
         if (hour < time) {
             $(this).find('textarea').addClass('past');
         }
