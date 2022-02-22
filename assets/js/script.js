@@ -1,32 +1,38 @@
 // Current day at the top of the page
 $('#currentDay').text(moment().format('MMMM Do YYYY'));
 
+let info = [];
+
 // Load info
 function loadInfo() {
-    $('#9').find('textarea').val(localStorage.getItem('9'));
-    $('#10').find('textarea').val(localStorage.getItem('10'));
-    $('#11').find('textarea').val(localStorage.getItem('11'));
-    $('#12').find('textarea').val(localStorage.getItem('12'));
-    $('#13').find('textarea').val(localStorage.getItem('1'));
-    $('#14').find('textarea').val(localStorage.getItem('2'));
-    $('#15').find('textarea').val(localStorage.getItem('3'));
-    $('#16').find('textarea').val(localStorage.getItem('4'));
-    $('#17').find('textarea').val(localStorage.getItem('5'));
+    info = JSON.parse(localStorage.getItem('info'));
+
+    if(!info) {
+        return false;
+    };
+    
+    for (i = 0; i < info.length; i++) {
+        $('.time-block').each(function() {
+            if (info[i].key === $(this).attr('id')) {
+                $(this).find('textarea').val(info[i].input);
+            };
+        });
+    };
 };
 
 // Save info on click
 $('.saveBtn').on('click', function(event) {
     event.preventDefault();
 
-    localStorage.setItem('9', $('#9').find('textarea').val());
-    localStorage.setItem('10', $('#10').find('textarea').val());
-    localStorage.setItem('11', $('#11').find('textarea').val());
-    localStorage.setItem('12', $('#12').find('textarea').val());
-    localStorage.setItem('1', $('#13').find('textarea').val());
-    localStorage.setItem('2', $('#14').find('textarea').val());
-    localStorage.setItem('3', $('#15').find('textarea').val());
-    localStorage.setItem('4', $('#16').find('textarea').val());
-    localStorage.setItem('5', $('#17').find('textarea').val());
+    info = [];
+
+    $('.time-block').each(function() {
+        info.push({
+            key: $(this).attr('id'),
+            input: $(this).find('textarea').val()
+        });
+        localStorage.setItem('info', JSON.stringify(info));
+    });
 });
 
 // Set box color according to the time
